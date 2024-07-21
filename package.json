@@ -1,0 +1,18 @@
+{
+  "name": "pramp-questions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require esm \"test/**/*.mjs\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "esm": "^3.2.25",
+    "mocha": "^10.7.0"
+  }
+}
