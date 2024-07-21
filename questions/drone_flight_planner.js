@@ -22,3 +22,28 @@ input:  route = [ [0,   2, 10],
 output: 5 # less than 5 kWh and the drone would crash before the finish
           # line. More than `5` kWh and it’d end up with excess e
  */
+
+function calcDroneMinEnergy1(route) {
+    let energyBalance = 0;
+    let largestEnergyDeficit = 0;
+
+    for (let i = 1; i < route.length; i++) {
+        energyBalance += route[i-1][2] - route[i][2];
+        if (energyBalance < largestEnergyDeficit) {
+            largestEnergyDeficit = energyBalance;
+        }
+    }
+    return -1*(largestEnergyDeficit);
+}
+
+function calcDroneMinEnergy2(route) {
+    let maxHeighest = route[0][2];
+
+    for (let i = 0; i < route.length; i++) {
+        if (route[i][2] > maxHeighest) {
+            maxHeighest = route[i][2];
+        }
+    }
+
+    return maxHeighest - route[i][2];
+}
