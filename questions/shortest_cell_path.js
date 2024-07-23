@@ -13,3 +13,27 @@ input: grid = [[1, 1, 1, 1], [0, 0, 0, 1], [1, 1, 1, 1]] sr = 0, sc = 0, tr = 2,
 
 grid = [[1, 1, 1, 1], [0, 0, 0, 1], [1, 0, 1, 1]] sr = 0, sc = 0, tr = 2, tc = 0 output: -1 (The lines below represent this grid:) 1111 0001 1011
  */
+
+// use bfs to solve
+export function shortestCellPath(grid,sr,sc,tr,tc) {
+    if (grid[sr][sc] === 0 || grid[tr][tc] === 0) return -1;
+
+    let visisted = new Set([`${sr},${sc}`]);
+    let queue = [[sr,sc,0]];
+    while (queue.length) {
+        // get the first queue element
+        let [i,j,level] = queue.shift();
+        if (i===tr && j===tc) {
+            return level;
+        }
+        // check 4 direction neighbors
+        let fourArr = [[i-1,j],[i+1,j],[i,j-1],[i,j+1]];
+        for (const [row,col] of fourArr) {
+            if (row>=0 && row<grid.length && col>=0 && col<grid[0].length && grid[row][col] === 1 && !visisted.has(`${row},${col}`)) {
+                queue.push([row,col,level+1]);
+                visisted.add(`${row},${col}`);
+            }
+        }
+    }
+    return -1;
+}
