@@ -19,7 +19,7 @@ words = ["to"]
 output: -1
  */
 
-function shortestWordEditPath(source, target, words) {
+export function shortestWordEditPath(source, target, words) {
     const wordSet = new Set(words);
 
     // if words not contain target, the task is impossible
