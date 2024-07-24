@@ -19,18 +19,21 @@ output: [0, 4, 7, 9] # The ordered quadruplet of (7, 4, 0, 9)
                      # ascending order)     
  */
 
-function findArrayQuadruplet(arr, s) {
+export function findArrayQuadruplet(arr, s) {
     let n = arr.length;
+    // Return an empty array if there are fewer than 4 elements
     if (n < 4) return [];
-    // firstly sort the array
+    // Sort the array to use the two-pointer technique
     arr.sort((a,b)=>a-b);
 
+    // Traverse the array to find the first quadruplet
     for(let i = 0; i < n-3; i++) {
         for (let j = i+1; j < n-2;j++) {
             let targetSum = s - arr[i] - arr[j];
             let left = j + 1;
             let right = n-1;
             
+            // Use the two-pointer technique to find the remaining two numbers
             while (left < right) {
                 if (targetSum === arr[left] + arr[right]) {
                     return [arr[i], arr[j], arr[left], arr[right]];
@@ -43,6 +46,7 @@ function findArrayQuadruplet(arr, s) {
         }
     }
 
+    // Return an empty array if no quadruplet is found
     return [];
 }
 
