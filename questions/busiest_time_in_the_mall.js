@@ -26,7 +26,7 @@ output: 1487800378
 
  */
 
-function findBusiestPeriod1(data) {
+export function findBusiestPeriod1(data) {
     let newData = [];
     let curTime = 0;
     for (let i = 0; i < data.length; i++) {
@@ -62,7 +62,7 @@ function findBusiestPeriod1(data) {
     return result.busiestTime;
 }
 
-function findBusiestPeriod2(data) {
+export function findBusiestPeriod2(data) {
     // initial variables
     let maxPeople = 0;
     let busiestTime = 0;
