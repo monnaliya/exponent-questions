@@ -18,7 +18,7 @@ output: 6 # since this is the number of islands in binaryMatrix.
           # See all 6 islands color-coded below.
 */
 
-function getNumberOfIslands(binaryMatrix) {
+export function getNumberOfIslands(binaryMatrix) {
     const ROWLEN = binaryMatrix.length;
     const COLLEN = binaryMatrix[0].length;
     let counts = 0;
@@ -50,13 +50,3 @@ function getNumberOfIslands(binaryMatrix) {
 
     return counts;
 }
-
-binaryMatrix = [ 
-    [0,    1,    0,    1,    0],
-    [0,    0,    1,    1,    1],
-    [1,    0,    0,    1,    0],
-    [0,    1,    1,    0,    0],
-    [1,    0,    1,    0,    1] ];
-
-console.log(getNumberOfIslands(binaryMatrix))
-
