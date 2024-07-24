@@ -14,7 +14,7 @@ output: -1 # since no index in arr satisfies arr[i] == i.
  */
 
 // brute force, tc: o(N), sc: o(1)
-function indexEqualsValueSearch1(arr) {
+export function indexEqualsValueSearch1(arr) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === i) {
             return i;
@@ -24,7 +24,7 @@ function indexEqualsValueSearch1(arr) {
 }
 
 // binary search, tc:o(logN), sc:O(1)
-function indexEqualsValueSearch2(arr) {
+export function indexEqualsValueSearch2(arr) {
     let left = 0;
     let right = arr.length - 1;
     let result = -1;
