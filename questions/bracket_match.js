@@ -18,3 +18,42 @@ output: 0
 input:  text = “())(”
 output: 2
  */
+
+// brute force solution
+export function bracketMatch1(text) {
+    let stack = [];
+    for (let i = 0; i < text.length; i++) {
+        // text.charAt(i)
+        const bracket = text.charAt(i);
+        if (bracket === ')') {
+            if (stack.length && stack[stack.length - 1] === '(') {
+                stack.pop();
+            } else { // stack is empty; or stack[stack.length - 1] is )
+                stack.push(bracket);
+            }
+        } else { // '('
+            stack.push(bracket);
+        }
+    }
+    return stack.length;
+}
+
+export function bracketMatch2(text) {
+    let ans = 0;
+    let midval = 0;
+    let openCount = 0;
+    let closeCount = 0;
+    for (let i = 0; i < text.length; i++) {
+        const bracket = text.charAt(i);
+        if (bracket === '(') {
+            openCount++;
+        } else {
+            if (openCount > 0) {
+                openCount--;
+            } else {
+                closeCount++;
+            }
+        }
+    }
+    return openCount + closeCount;
+}
