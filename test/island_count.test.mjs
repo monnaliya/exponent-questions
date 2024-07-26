@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { getNumberOfIslands } from '../questions/island_count.js';
+import { getNumberOfIslands } from '../questions/js/island_count.js';
 
 describe('getNumberOfIslands', function() {
   it('should return the correct number of islands', function() {

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { bracketMatch1, bracketMatch2 } from '../questions/bracket_match.js';
+import { bracketMatch1, bracketMatch2 } from '../questions/js/bracket_match.js';
 
 describe('bracketMatch1', () => {
   it('should return 0 for correctly matched brackets', () => {

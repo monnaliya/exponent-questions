@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { shortestWordEditPath } from '../questions/shortest_word_edit.js'; // Adjust the path based on your file structure
+import { shortestWordEditPath } from '../questions/js/shortest_word_edit.js'; // Adjust the path based on your file structure
 
 describe('shortestWordEditPath', function() {
   it('should return the correct number of steps for a valid transformation', function() {

@@ -1,6 +1,6 @@
 // Import the necessary modules
 import { expect } from 'chai';
-import { shortestCellPath } from '../questions/shortest_cell_path.js';
+import { shortestCellPath } from '../questions/js/shortest_cell_path.js';
 
 
 // Define the test suite for shortestCellPath

@@ -1,6 +1,6 @@
 // Import the necessary modules
 import { expect } from 'chai';
-import { indexEqualsValueSearch1, indexEqualsValueSearch2 } from '../questions/array_index_and_element_equality.js';
+import { indexEqualsValueSearch1, indexEqualsValueSearch2 } from '../questions/js/array_index_and_element_equality.js';
 
 // Define the test suite for indexEqualsValueSearch1
 describe('indexEqualsValueSearch1', () => {

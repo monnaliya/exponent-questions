@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { findArrayQuadruplet } from '../questions/array_quadruplet.js';
+import { findArrayQuadruplet } from '../questions/js/array_quadruplet.js';
 
 describe('findArrayQuadruplet', function() {
   it('should return an empty array if no quadruplet is found', function() {

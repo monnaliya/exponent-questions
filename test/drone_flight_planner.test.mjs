@@ -1,6 +1,6 @@
 // Import the necessary modules
 import { expect } from 'chai';
-import { calcDroneMinEnergy1, calcDroneMinEnergy2 } from '../questions/drone_flight_planner.js';
+import { calcDroneMinEnergy1, calcDroneMinEnergy2 } from '../questions/js/drone_flight_planner.js';
 
 // Define the test suite for calcDroneMinEnergy1
 describe('calcDroneMinEnergy1', () => {

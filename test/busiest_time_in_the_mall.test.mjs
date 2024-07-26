@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { findBusiestPeriod1, findBusiestPeriod2 } from '../questions/busiest_time_in_the_mall.js';
+import { findBusiestPeriod1, findBusiestPeriod2 } from '../questions/js/busiest_time_in_the_mall.js';
 
 describe('findBusiestPeriod', function() {
   it('should return the correct busiest period', function() {
