@@ -39,8 +39,6 @@ export function bracketMatch1(text) {
 }
 
 export function bracketMatch2(text) {
-    let ans = 0;
-    let midval = 0;
     let openCount = 0;
     let closeCount = 0;
     for (let i = 0; i < text.length; i++) {
