@@ -3,16 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "mocha --require esm \"test/**/*.mjs\""
+    "test": "mocha --require esm \"test/**/*.mjs\"",
+    "test:js": "mocha --require esm 'test/**/*.mjs'",
+    "test:ts": "mocha -r ts-node/register 'test/**/*.ts'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "devDependencies": {
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.7",
     "chai": "^5.1.1",
     "esm": "^3.2.25",
-    "mocha": "^10.7.0"
+    "mocha": "^10.7.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }
