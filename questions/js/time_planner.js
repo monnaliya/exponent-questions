@@ -25,3 +25,23 @@ input:  slotsA = [[10, 50], [60, 120], [140, 210]]
 output: [] # since there is no common slot whose duration is 12
 
  */
+
+export function meetingPlanner(slotsA, slotsB, dur) {
+    let i = 0;
+    let j = 0;
+    while (i < slotsA.length && j < slotsB.length) {
+        const slotA = slotsA[i];
+        const slotB = slotsB[j];
+        const start = Math.max(slotA[0], slotB[0]);
+        const end = Math.min(slotA[1], slotB[1]);
+        if (end - start >= dur) {
+            return [start, start + dur];
+        }
+        if (slotA[1] < slotB[1]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    return [];
+}
