@@ -45,4 +45,5 @@ export function shiftedArrSearch(shiftArr, num) {
             }
         }
     }
+    return -1;
 }   
