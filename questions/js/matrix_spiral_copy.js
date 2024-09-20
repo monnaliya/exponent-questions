@@ -14,7 +14,7 @@ output: [1, 2, 3, 4, 5, 10, 15, 20, 19, 18, 17, 16, 11, 6, 7, 8, 9, 14, 13, 12]
 
  */
 
-function spiralCopy(inputMatrix) {
+export function spiralCopy(inputMatrix) {
 
   const rowLen = inputMatrix.length;
   const colLen = inputMatrix[0].length;
