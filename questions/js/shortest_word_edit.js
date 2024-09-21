@@ -69,6 +69,38 @@ function getNeighbors(word, wordSet){
     return neighbors;
 }
 
+export function shortestWordEditPath2(source, target, words) {
+    if (source === target) return 0;
+
+    const wordSet = new Set(words);
+
+    if (!wordSet.has(target)) return -1;
+
+    let visited = new Set([source]);
+    let queue = [[source, 0]];
+
+    while (queue.length) {
+        const [currentWord, depth] = queue.shift();
+        for (let i = 0; i < currentWord.length; i++) {
+            const preletters = currentWord.slice(0, i);
+            const lastLetters = currentWord.slice(i + 1);
+    
+            for (let charCode = 97; charCode < 122; charCode++) {
+                const newWord = preletters + String.fromCharCode(charCode) + lastLetters;
+                if (target === newWord) {
+                    return depth + 1;
+                }
+                if (!visited.has(newWord) && wordSet.has(newWord)) {
+                    visited.add(newWord);
+                    queue.push([newWord, depth+1]);
+                }
+            }
+        }
+    }
+
+    return -1;
+}
+
 let source = "bit", target = "dog", words = ["but", "put", "big", "pot", "pog", "dog", "lot"];
 console.log(shortestWordEditPath(source,target,words))
 
