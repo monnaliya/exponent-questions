@@ -19,83 +19,28 @@ Important: please convert the occurrence integers in the output list to strings 
 
  */
 
-/**
- *     wordMap = new Map()
-    wordList = document.split()
-    largestCount = 0;
+export function wordCountEngine(document) {
+    const normalizeDoc = document.toLowerCase().replace(/[^\w\s]/g, '');
+    const words = normalizeDoc.split(' ');
+    const wordMap = new Map();
 
-    for i from 0 to wordList.length-1:
-        # convert each token to lowercase
-        word = wordList[i].toLowerCase()
+    words.forEach((word, index) => {
+        if (!word) return;
+        if (wordMap.has(word)) {
+            wordMap.get(word).count += 1;
+        } else {
+            wordMap.set(word, {count: 1, index});
+        }
+    });
 
-        # and remove special/punctuation characters
-        charArray = []
-        for ch in word:
-            if (ch >= 'a' and ch <= 'z'):
-                charArray.push(ch)
+    const wordList = Array.from(wordMap.entries()).sort((a,b) => {
+        if (a[1].count === b[1].count) {
+            return a[1].index - b[1].index;
+        } else {
+            return b[1].count - a[1].count;
+        }
+    });
 
-        # form a string from the characters in charArray.
-        # use your programming language's native “join”
-        # or equivalent function. If there isn't any,
-        # implement yourself. It's quite straightforward.
-        cleanWord = join(charArray)
+    return wordList.map(([word, info]) => [word, info.count.toString()]);
+}
 
-        # if the token consisted of only whitespace
-        # characters, then cleanWord is an empty string
-        # and we should ignore it and continue to the
-        # next word.
-        if (cleanWord.length < 1):
-            continue
-
-        # add clean word to the wordMap and
-        # increase counter if needed
-        count = 0
-        if (cleanWord in wordMap):
-            count = wordMap[cleanWord]
-            count++
-        else:
-            count = 1
-
-        if (count > largestCount):
-            largestCount = count
-
-        wordMap[cleanWord] = count
-
-    # init the word counter list of lists.
-    # Since, in the worst case scenario, the
-    # number of lists is going to be as
-    # big as the maximum occurrence count,
-    # we need counterList's size to be the
-    # same to be able to store these lists.
-    # Creating counterList will allow us to
-    # “bucket-sort” the list by word occurrences
-    counterList = new Array(largestCount+1)
-    for j from 0 to largestCount:
-        counterList[j] = null
-
-    # add all words to a list indexed by the
-    # corresponding occurrence number.
-    for word in wordMap.keys():
-        counter = wordMap[word]
-        wordCounterList = counterList[counter]
-
-        if (wordCounterList == null):
-            wordCounterList = []
-
-        wordCounterList.push(word)
-        counterList[counter] = wordCounterList
-
-    # iterate through the list in reverse order
-    # and add only non-null values to result
-    result = []
-    for l from counterList.length-1 to 0:
-        wordCounterList = counterList[l]
-        if (wordCounterList == null):
-            continue
-
-        stringifiedOccurrenceVal = toString(l)
-        for m from 0 to wordCounterList.length-1:
-            result.push([wordCounterList[m], stringifiedOccurrenceVal])
-
-    return result
- */
