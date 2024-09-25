@@ -17,3 +17,17 @@ is a Toeplitz matrix, so we should return true, while
  [6,5,1,2]]
 isn’t a Toeplitz matrix, so we should return false.
  */
+
+export function isToeplitzMatrix(arr) {
+  const rowLen = arr.length;
+  const colLen = arr[0].length;
+  for (let i = 1; i < rowLen; i++) {
+    for (let j = 1; j < colLen; j++) {
+      if (arr[i-1][j-1] !== arr[i][j]) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
