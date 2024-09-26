@@ -42,3 +42,27 @@ export function arrayOfArrayProducts(arr) {
 
     return result;
 }
+
+export function arrayOfArrayProducts2(arr) {
+    const len = arr.length;
+
+    if (len <= 1) return [];
+
+    let result = new Array(len).fill(1);
+    let leftProducts = new Array(len).fill(1);
+    let rightProducts = new Array(len).fill(1);
+
+    for (let i = 1; i < len; i++) {
+        leftProducts[i] = leftProducts[i-1] * arr[i-1];
+    }
+
+    for (let i = len - 2; i >= 0; i--) {
+        rightProducts[i] = rightProducts[i+1] * arr[i+1];
+    }
+
+    for (let i = 0; i < len; i++) {
+        result[i] = leftProducts[i] * rightProducts[i];
+    }
+
+    return result;
+}
