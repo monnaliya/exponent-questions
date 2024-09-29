@@ -9,3 +9,13 @@ Examples:
 input:  arr = [2, -7, -2, -2, 0]
 output: [0, -2, -2, 2, -7]
  */
+
+export function absSort(arr) {
+  return arr.sort((a,b) => {
+    if (Math.abs(a) === Math.abs(b)) {
+      return a - b;
+    }
+    return Math.abs(a) - Math.abs(b);
+  })
+}
+
