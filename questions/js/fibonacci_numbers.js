@@ -14,3 +14,17 @@ fib(10) # => 89
 fib(20) # => 10946
  */
 
+export function fib1(n, memo = {}) {
+  if (n <= 1) return 1;
+  return fib1(n-1)+fib1(n-2);
+}
+
+export function fib2(n, memo = {}) {
+  if (n <= 1) {
+      return 1;
+  }
+  if (!memo[n]) {
+      memo[n] = fib2(n - 1, memo) + fib2(n - 2, memo);
+  }
+  return memo[n];
+}
