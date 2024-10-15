@@ -19,3 +19,19 @@ intervals = [[1,2], [3,4], [5,6], [7,8]]
 output: [[1,2], [3,4], [5,6], [7,8]]
  */
 
+export default function mergeIntervals(intervals){
+  if (intervals.length === 0) return [];
+  intervals.sort((a,b) => a[0]-b[0]);
+  let result = [intervals[0]];
+  for (let i = 1; i < intervals.length; i++) {
+      let cur = result[result.length - 1];
+      const next = intervals[i];
+      if (cur[1] < next[0]) {
+          result.push(next);
+      } else {
+          cur[1] = Math.max(cur[1], next[1]);
+      }
+  }
+  return result;
+}
+
