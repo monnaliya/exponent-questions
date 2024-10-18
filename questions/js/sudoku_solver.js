@@ -19,3 +19,55 @@ A solved sudoku is a board with no blank spaces, i.e. all blank spaces are fille
 If the function succeeds in solving the sudoku board, it’ll return true (false, otherwise).
 
  */
+
+function getCandidates(board, row, col) {
+  let candidates = [];
+
+  for (let chr of '123456789') {
+    let collision = false;
+    for (let i = 0; i < 9; i++) {
+      if (board[row][i] === chr ||
+          board[i][col] === chr ||
+          board[Math.floor((row - row % 3) + i / 3)][Math.floor((col - col % 3) + i % 3)] === chr) {
+          collision = true;
+          break;
+      }
+    }
+
+    if (!collision) {
+      candidates.push(chr);
+    }
+  }
+  return candidates;
+}
+
+export default function sudokuSolve(board) {
+  let row = -1, col = -1, candidates = null;
+
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      if (board[r][c] === '.') {
+        let new_candidates = getCandidates(board, r, c);
+        if (candidates === null || new_candidates.length < candidates.length) {
+          candidates = new_candidates;
+          row = r;
+          col = c;
+        }
+      }
+    }
+  }
+
+  if (candidates === null) {
+    return true;
+  }
+
+  for (let val of candidates) {
+    board[row][col] = val;
+    if (sudokuSolve(board)) {
+      return true;
+    }
+    board[row][col] = '.';
+  }
+
+  return false;
+}
